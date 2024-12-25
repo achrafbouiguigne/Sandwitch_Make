@@ -5,128 +5,159 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elegant Sandwich Maker</title>
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-            color: #343a40;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            max-width: 800px;
-            width: 100%;
-        }
-        h1 {
-            text-align: center;
-            font-size: 2rem;
-            color: #212529;
-        }
-        h2 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #495057;
-        }
-        .ingredients {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-        }
-        .ingredient {
-            border: 2px solid #ced4da;
-            border-radius: 10px;
-            padding: 15px;
-            text-align: center;
-            cursor: pointer;
-            width: 100px;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .ingredient:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
-        .ingredient img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
-        .sandwich-preview {
-            margin-top: 20px;
-            border: 2px dashed #dee2e6;
-            padding: 20px;
-            min-height: 300px;
-            display: flex;
-            flex-direction: column-reverse;
-            align-items: center;
-            background-color: #e9ecef;
-            border-radius: 10px;
-        }
-        .layer {
-            margin: 5px 0;
-            padding: 10px;
-            text-align: center;
-            color: white;
-            border-radius: 5px;
-            width: 180px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
-        .layer[data-name="White Bread"] {
-            background-color: #f5e1da;
-            border-radius: 20px 20px 5px 5px;
-            height: 30px;
-        }
-        .layer[data-name="Bottom Bread"] {
-            background-color: #f5e1da;
-            border-radius: 5px 5px 20px 20px;
-            height: 30px;
-        }
-        .layer[data-name="Turkey"] {
-            background-color: #d2a679;
-            height: 25px;
-        }
-        .layer[data-name="Lettuce"] {
-            background-color: #85c78f;
-            height: 10px;
-        }
-        .layer[data-name="Tomato"] {
-            background-color: #e57373;
-            height: 20px;
-        }
-        .layer[data-name="Cheddar"] {
-            background-color: #f2b04e;
-            height: 10px;
-        }
-        button {
-            background-color: #6c757d;
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin-top: 20px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        button:hover {
-            background-color: #5a6268;
-        }
-    </style>
+        /* Corps de la page */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Conteneur principal */
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Titres */
+h1 {
+    font-size: 2.5rem;
+    color: #343a40;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #495057;
+}
+
+/* Liste des ingrédients */
+.ingredients {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.ingredient {
+    border: 2px solid #dee2e6;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    width: 120px;
+    height: 120px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background: linear-gradient(to top, #ffffff, #f8f9fa);
+}
+
+.ingredient:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to top, #f8f9fa, #ffffff);
+}
+
+/* Prévisualisation du sandwich */
+.sandwich-preview {
+    margin-top: 20px;
+    border: 2px dashed #dee2e6;
+    padding: 20px;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    background: rgba(245, 245, 245, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Couches de sandwich */
+.layer {
+    margin: 5px 0;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.layer[data-name="White Bread"] {
+    background: linear-gradient(to bottom, #f5e1da, #f0d4c5);
+    border-radius: 20px 20px 5px 5px;
+    height: 30px;
+}
+
+.layer[data-name="Bottom Bread"] {
+    background: linear-gradient(to top, #f5e1da, #f0d4c5);
+    border-radius: 5px 5px 20px 20px;
+    height: 30px;
+}
+
+.layer[data-name="Turkey"] {
+    background: linear-gradient(to right, #d2a679, #c29662);
+    height: 25px;
+}
+
+.layer[data-name="Lettuce"] {
+    background: linear-gradient(to right, #85c78f, #6ebf79);
+    height: 10px;
+}
+
+.layer[data-name="Tomato"] {
+    background: linear-gradient(to right, #e57373, #cf5c5c);
+    height: 20px;
+}
+
+.layer[data-name="Cheddar"] {
+    background: linear-gradient(to right, #f2b04e, #d99937);
+    height: 10px;
+}
+
+/* Boutons */
+button {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #ffffff;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+    display: block;
+    margin: 20px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: scale(0.95);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+</style>
 </head>
 <body>
     <div class="container">
