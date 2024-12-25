@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant Sandwich Maker</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #343a40;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 800px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            color: #212529;
+        }
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #495057;
+        }
+        .ingredients {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        .ingredient {
+            border: 2px solid #ced4da;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            width: 100px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .ingredient:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .ingredient img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .sandwich-preview {
+            margin-top: 20px;
+            border: 2px dashed #dee2e6;
+            padding: 20px;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            background-color: #e9ecef;
+            border-radius: 10px;
+        }
+        .layer {
+            margin: 5px 0;
+            padding: 10px;
+            text-align: center;
+            color: white;
+            border-radius: 5px;
+            width: 180px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .layer[data-name="White Bread"] {
+            background-color: #f5e1da;
+            border-radius: 20px 20px 5px 5px;
+            height: 30px;
+        }
+        .layer[data-name="Bottom Bread"] {
+            background-color: #f5e1da;
+            border-radius: 5px 5px 20px 20px;
+            height: 30px;
+        }
+        .layer[data-name="Turkey"] {
+            background-color: #d2a679;
+            height: 25px;
+        }
+        .layer[data-name="Lettuce"] {
+            background-color: #85c78f;
+            height: 10px;
+        }
+        .layer[data-name="Tomato"] {
+            background-color: #e57373;
+            height: 20px;
+        }
+        .layer[data-name="Cheddar"] {
+            background-color: #f2b04e;
+            height: 10px;
+        }
+        button {
+            background-color: #6c757d;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        button:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Build Your Sandwich</h1>
+
+        <h2>Choose Your Ingredients</h2>
+        <div class="ingredients">
+            <div class="ingredient" data-name="White Bread">Top Bread</div>
+            <div class="ingredient" data-name="Bottom Bread">Bottom Bread</div>
+            <div class="ingredient" data-name="Turkey">Turkey</div>
+            <div class="ingredient" data-name="Lettuce">Lettuce</div>
+            <div class="ingredient" data-name="Tomato">Tomato</div>
+            <div class="ingredient" data-name="Cheddar">Cheddar</div>
+        </div>
+
+        <div class="sandwich-preview">
+            <h2>Your Sandwich</h2>
+            <div id="sandwich-layers"></div>
+        </div>
+
+        <button id="reset-btn">Reset</button>
+    </div>
+
+    <script>
+        const ingredients = document.querySelectorAll('.ingredient');
+        const sandwichLayers = document.getElementById('sandwich-layers');
+        const resetBtn = document.getElementById('reset-btn');
+
+        ingredients.forEach(ingredient => {
+            ingredient.addEventListener('click', () => {
+                const ingredientName = ingredient.getAttribute('data-name');
+
+                // Add ingredient visually to the sandwich preview
+                const div = document.createElement('div');
+                div.textContent = ingredientName;
+                div.className = 'layer';
+                div.setAttribute('data-name', ingredientName);
+                sandwichLayers.appendChild(div);
+            });
+        });
+
+        resetBtn.addEventListener('click', () => {
+            sandwichLayers.innerHTML = '';
+        });
+    </script>
+</body>
+</html>
